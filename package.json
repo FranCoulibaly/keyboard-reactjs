@@ -1,0 +1,26 @@
+{
+  "name": "musicbox",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "dependencies": {
+    "body-parser": "^1.18.1",
+    "express": "^4.15.4",
+    "pg": "^7.3.0",
+    "pug": "^2.0.0-rc.4",
+    "react-audio-player": "^0.6.2",
+    "react-audioplayer": "^0.3.1"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-plugin-transform-react-jsx": "^6.24.1",
+    "babel-preset-env": "^1.6.0",
+    "babelify": "^7.3.0",
+    "browserify": "^14.4.0"
+  },
+  "scripts": {
+    "build": "cd client && browserify ./main.jsx -o ../build/client.js -t [ babelify ]"
+  },
+  "author": "",
+  "license": "ISC"
+}
