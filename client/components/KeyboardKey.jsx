@@ -4,7 +4,8 @@ export class KeyboardKey extends React.Component {
 		super(props);
 
 		this.state = {
-			isPlaying:false
+			isPlaying: false,
+			keypressed: null
 		};
 
 		this.handleKeyPress = this.handleKeyPress.bind(this);           
@@ -18,7 +19,8 @@ export class KeyboardKey extends React.Component {
 			audio.currentTime = 0;
 			audio.play();
 			this.setState({
-				isPlaying: true
+				isPlaying: true,
+				keypressed: this.props.keyChar
 			});
 		 }
 	}
@@ -38,7 +40,7 @@ export class KeyboardKey extends React.Component {
 		const styles = {
 			key: {
 				border: 'solid white',
-				borderRadius: .5,
+				borderRadius: '50%',
 				margin: 16,
 				paddingTop: 16,
 				paddingBottom: 8,
@@ -53,7 +55,7 @@ export class KeyboardKey extends React.Component {
 				textTransform: 'uppercase',
 			},
 			sound: {
-				fontSize: 15,
+				fontSize: 10,
 				textTransform: 'uppercase',
 				letterSpacing: 1.5,
 				color: '#ffc600',
@@ -61,6 +63,8 @@ export class KeyboardKey extends React.Component {
 			}
 
 		}
+
+		console.log(this.state.isPlaying);
 		return (
 			<div >
 				<div
@@ -68,6 +72,7 @@ export class KeyboardKey extends React.Component {
 				style={styles.key}>
 					<kbd style={styles.kbd}>{this.props.keyChar}</kbd>
 					<span style={styles.sound}>{this.props.sound}</span>
+					<SaveSounds keypressed={this.state.keypressed} />
 				</div>
 			</div>
 		);

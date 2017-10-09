@@ -1,13 +1,13 @@
 
 import {DrumKeyboard} from "./InstrumentKeyboards.jsx"
-import {KeyboardKey} from "./KeyboardKey.jsx"
+import {SwitchInstruments} from "./SwitchInstruments.jsx"
 
 export class App extends React.Component {
 	constructor(props) {
 		super(props);
 
 		this.state = {
-			instrument: props.drums,
+			// instrument: props.drums,
 			recording: false,
 			playingBack: false
 		};
@@ -20,6 +20,7 @@ export class App extends React.Component {
 
 	}
 
+
 	render() {
 
 		const styles = {
@@ -30,8 +31,9 @@ export class App extends React.Component {
 
 			}
 		}
-		return (<div style={styles.image}> 
-			<DrumKeyboard />
+		// render SwitchInstruments here
+		return (<div style={styles.image}> 			
+			<SwitchInstruments />
 			</div>)
 	}
 }

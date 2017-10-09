@@ -10,7 +10,7 @@ var _createClass = function () { function defineProperties(target, props) { for 
 
 var _InstrumentKeyboards = require("./InstrumentKeyboards.jsx");
 
-var _KeyboardKey = require("./KeyboardKey.jsx");
+var _SwitchInstruments = require("./SwitchInstruments.jsx");
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -27,7 +27,7 @@ var App = exports.App = function (_React$Component) {
 		var _this = _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).call(this, props));
 
 		_this.state = {
-			instrument: props.drums,
+			// instrument: props.drums,
 			recording: false,
 			playingBack: false
 		};
@@ -52,11 +52,11 @@ var App = exports.App = function (_React$Component) {
 					margin: 0
 
 				}
-			};
-			return React.createElement(
+				// render SwitchInstruments here
+			};return React.createElement(
 				"div",
 				{ style: styles.image },
-				React.createElement(_InstrumentKeyboards.DrumKeyboard, null)
+				React.createElement(_SwitchInstruments.SwitchInstruments, null)
 			);
 		}
 	}]);
@@ -64,13 +64,13 @@ var App = exports.App = function (_React$Component) {
 	return App;
 }(React.Component);
 
-},{"./InstrumentKeyboards.jsx":2,"./KeyboardKey.jsx":3}],2:[function(require,module,exports){
+},{"./InstrumentKeyboards.jsx":2,"./SwitchInstruments.jsx":5}],2:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
 	value: true
 });
-exports.DrumKeyboard = undefined;
+exports.SynthKeyboard = exports.PianoKeyboard = exports.DrumKeyboard = undefined;
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
@@ -91,26 +91,8 @@ var DrumKeyboard = exports.DrumKeyboard = function (_React$Component) {
 		var _this = _possibleConstructorReturn(this, (DrumKeyboard.__proto__ || Object.getPrototypeOf(DrumKeyboard)).call(this, props));
 
 		_this.state = {};
-		// this.setAudioFile = this.setAudioFile.bind(this);
 		return _this;
 	}
-
-	// setAudioFile(event) {
-	// 	let audioFile = "./"
-	// 	switch(event.key) {
-	// 		case "a":
-	// 		audioFile = "./sounds/drums/clap.wav";
-	// 		break;
-	// 		case "s":
-	// 		audioFile = "./sounds/drums/hihat.wav";
-	// 		break;
-	// 		default: console.log('default');
-
-	// 		break;
-	// 	}
-
-
-	// }
 
 	_createClass(DrumKeyboard, [{
 		key: 'render',
@@ -145,6 +127,100 @@ var DrumKeyboard = exports.DrumKeyboard = function (_React$Component) {
 	}]);
 
 	return DrumKeyboard;
+}(React.Component);
+
+var PianoKeyboard = exports.PianoKeyboard = function (_React$Component2) {
+	_inherits(PianoKeyboard, _React$Component2);
+
+	function PianoKeyboard(props) {
+		_classCallCheck(this, PianoKeyboard);
+
+		var _this2 = _possibleConstructorReturn(this, (PianoKeyboard.__proto__ || Object.getPrototypeOf(PianoKeyboard)).call(this, props));
+
+		_this2.state = {};
+		return _this2;
+	}
+
+	_createClass(PianoKeyboard, [{
+		key: 'render',
+		value: function render() {
+			var styles = {
+				keys: {
+					display: 'flex',
+					flex: 1,
+					alignItems: 'center',
+					justifyContent: 'center',
+					flexDirection: 'row',
+					height: 150,
+					paddingTop: 250,
+					paddingBottom: 300
+				}
+			};
+
+			return React.createElement(
+				'div',
+				{ style: styles.keys },
+				React.createElement(_KeyboardKey.KeyboardKey, { keyChar: 'a', sound: 'c', audioFile: './sounds/piano/grandpianoC-a.wav' }),
+				React.createElement(_KeyboardKey.KeyboardKey, { keyChar: 's', sound: 'd', audioFile: './sounds/piano/grandpianoD-s.wav' }),
+				React.createElement(_KeyboardKey.KeyboardKey, { keyChar: 'd', sound: 'e', audioFile: './sounds/piano/grandpianoE-d.wav' }),
+				React.createElement(_KeyboardKey.KeyboardKey, { keyChar: 'f', sound: 'f', audioFile: './sounds/piano/grandpianoF-f.wav' }),
+				React.createElement(_KeyboardKey.KeyboardKey, { keyChar: 'g', sound: 'g', audioFile: './sounds/piano/grandpianoG-g.wav' }),
+				React.createElement(_KeyboardKey.KeyboardKey, { keyChar: 'h', sound: 'a', audioFile: './sounds/piano/grandpianoA-h.wav' }),
+				React.createElement(_KeyboardKey.KeyboardKey, { keyChar: 'j', sound: 'b', audioFile: './sounds/piano/grandpianoB-j.wav' }),
+				React.createElement(_KeyboardKey.KeyboardKey, { keyChar: 'k', sound: 'c', audioFile: './sounds/piano/grandpianoC-k.wav' }),
+				React.createElement(_KeyboardKey.KeyboardKey, { keyChar: 'l', sound: 'd', audioFile: './sounds/piano/grandpianoD-l.wav' })
+			);
+		}
+	}]);
+
+	return PianoKeyboard;
+}(React.Component);
+
+var SynthKeyboard = exports.SynthKeyboard = function (_React$Component3) {
+	_inherits(SynthKeyboard, _React$Component3);
+
+	function SynthKeyboard(props) {
+		_classCallCheck(this, SynthKeyboard);
+
+		var _this3 = _possibleConstructorReturn(this, (SynthKeyboard.__proto__ || Object.getPrototypeOf(SynthKeyboard)).call(this, props));
+
+		_this3.state = {};
+		return _this3;
+	}
+
+	_createClass(SynthKeyboard, [{
+		key: 'render',
+		value: function render() {
+			var styles = {
+				keys: {
+					display: 'flex',
+					flex: 1,
+					alignItems: 'center',
+					justifyContent: 'center',
+					flexDirection: 'row',
+					height: 150,
+					paddingTop: 250,
+					paddingBottom: 300
+				}
+			};
+
+			return React.createElement(
+				'div',
+				{ style: styles.keys },
+				React.createElement(_KeyboardKey.KeyboardKey, { keyChar: 'a', sound: 'c', audioFile: './sounds/synth/synthC-a.wav' }),
+				React.createElement(_KeyboardKey.KeyboardKey, { keyChar: 's', sound: 'd', audioFile: './sounds/synth/synthD-s.wav' }),
+				React.createElement(_KeyboardKey.KeyboardKey, { keyChar: 'd', sound: 'e', audioFile: './sounds/synth/synthE-d.wav' }),
+				React.createElement(_KeyboardKey.KeyboardKey, { keyChar: 'f', sound: 'f', audioFile: './sounds/synth/synthF-f.wav' }),
+				React.createElement(_KeyboardKey.KeyboardKey, { keyChar: 'g', sound: 'g', audioFile: './sounds/synth/synthG-g.wav' }),
+				React.createElement(_KeyboardKey.KeyboardKey, { keyChar: 'h', sound: 'a', audioFile: './sounds/synth/synthA-h.wav' }),
+				React.createElement(_KeyboardKey.KeyboardKey, { keyChar: 'j', sound: 'b', audioFile: './sounds/synth/synthB-j.wav' }),
+				React.createElement(_KeyboardKey.KeyboardKey, { keyChar: 'k', sound: 'c', audioFile: './sounds/synth/synthC-k.wav' }),
+				React.createElement(_KeyboardKey.KeyboardKey, { keyChar: 'l', sound: 'd', audioFile: './sounds/synth/synthD-l.wav' })
+			);
+		}
+	}]);
+
+	return SynthKeyboard;
 }(React.Component);
 
 },{"./KeyboardKey.jsx":3}],3:[function(require,module,exports){
@@ -210,7 +286,7 @@ var KeyboardKey = exports.KeyboardKey = function (_React$Component) {
 			var styles = {
 				key: {
 					border: 'solid white',
-					borderRadius: .5,
+					borderRadius: '50%',
 					margin: 16,
 					paddingTop: 16,
 					paddingBottom: 8,
@@ -225,7 +301,7 @@ var KeyboardKey = exports.KeyboardKey = function (_React$Component) {
 					textTransform: 'uppercase'
 				},
 				sound: {
-					fontSize: 15,
+					fontSize: 10,
 					textTransform: 'uppercase',
 					letterSpacing: 1.5,
 					color: '#ffc600',
@@ -233,6 +309,8 @@ var KeyboardKey = exports.KeyboardKey = function (_React$Component) {
 				}
 
 			};
+
+			console.log(this.state.isPlaying);
 			return React.createElement(
 				'div',
 				null,
@@ -264,6 +342,144 @@ var KeyboardKey = exports.KeyboardKey = function (_React$Component) {
 },{}],4:[function(require,module,exports){
 "use strict";
 
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+exports.SetInstrument = undefined;
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _SwitchInstruments = require("./SwitchInstruments.jsx");
+
+var _InstrumentKeyboards = require("./InstrumentKeyboards.jsx");
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var SetInstrument = exports.SetInstrument = function (_React$Component) {
+	_inherits(SetInstrument, _React$Component);
+
+	function SetInstrument(props) {
+		_classCallCheck(this, SetInstrument);
+
+		return _possibleConstructorReturn(this, (SetInstrument.__proto__ || Object.getPrototypeOf(SetInstrument)).call(this, props));
+	}
+
+	_createClass(SetInstrument, [{
+		key: "render",
+		value: function render() {
+			console.log(this.props.instrument);
+			switch (this.props.instrument) {
+				case "piano":
+					return React.createElement(_InstrumentKeyboards.PianoKeyboard, null);
+					break;
+				case "drums":
+					return React.createElement(_InstrumentKeyboards.DrumKeyboard, null);
+					break;
+				case "synth":
+					return React.createElement(_InstrumentKeyboards.SynthKeyboard, null);
+			}
+		}
+	}]);
+
+	return SetInstrument;
+}(React.Component);
+
+},{"./InstrumentKeyboards.jsx":2,"./SwitchInstruments.jsx":5}],5:[function(require,module,exports){
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+exports.SwitchInstruments = undefined;
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _InstrumentKeyboards = require("./InstrumentKeyboards.jsx");
+
+var _SetInstrument = require("./SetInstrument.jsx");
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var SwitchInstruments = exports.SwitchInstruments = function (_React$Component) {
+	_inherits(SwitchInstruments, _React$Component);
+
+	function SwitchInstruments(props) {
+		_classCallCheck(this, SwitchInstruments);
+
+		var _this = _possibleConstructorReturn(this, (SwitchInstruments.__proto__ || Object.getPrototypeOf(SwitchInstruments)).call(this, props));
+
+		_this.state = {
+			instrument: "piano"
+		};
+		_this.setPiano = _this.setPiano.bind(_this);
+		_this.setDrums = _this.setDrums.bind(_this);
+		_this.setSynth = _this.setSynth.bind(_this);
+
+		return _this;
+	}
+
+	_createClass(SwitchInstruments, [{
+		key: "setPiano",
+		value: function setPiano() {
+			this.setState({
+				instrument: "piano"
+			});
+		}
+	}, {
+		key: "setDrums",
+		value: function setDrums() {
+			this.setState({
+				instrument: "drums"
+			});
+		}
+	}, {
+		key: "setSynth",
+		value: function setSynth() {
+			this.setState({
+				instrument: "synth"
+			});
+		}
+	}, {
+		key: "render",
+		value: function render() {
+			console.log("Current state: " + this.state.instrument);
+			return React.createElement(
+				"div",
+				null,
+				React.createElement(
+					"button",
+					{ instrument: "piano", onClick: this.setPiano },
+					" Piano "
+				),
+				React.createElement(
+					"button",
+					{ instrument: "drums", onClick: this.setDrums },
+					" Drums "
+				),
+				React.createElement(
+					"button",
+					{ instrument: "synth", onClick: this.setSynth },
+					" Synth "
+				),
+				React.createElement(_SetInstrument.SetInstrument, { instrument: this.state.instrument })
+			);
+		}
+	}]);
+
+	return SwitchInstruments;
+}(React.Component);
+
+},{"./InstrumentKeyboards.jsx":2,"./SetInstrument.jsx":4}],6:[function(require,module,exports){
+"use strict";
+
 var _App = require("./components/App.jsx");
 
 // import styles from "../public/stylesheets/style.css";
@@ -276,4 +492,4 @@ document.addEventListener("DOMContentLoaded", renderApp);
 
 if (document.getElementById("app")) renderApp();
 
-},{"./components/App.jsx":1}]},{},[4]);
+},{"./components/App.jsx":1}]},{},[6]);
