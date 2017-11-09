@@ -1,5 +1,4 @@
 import {App} from "./components/App.jsx";
-// import styles from "../public/stylesheets/style.css";
 
 function renderApp() {
 	ReactDOM.render(

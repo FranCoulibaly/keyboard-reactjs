@@ -1,29 +1,12 @@
 import {KeyboardKey} from "./KeyboardKey.jsx";
+import {Styles} from "./Styles.jsx";
 
 
 export class DrumKeyboard extends React.Component {
-	constructor(props) {
-		super(props);
-
-		this.state = {};
-	}
 
 	render(){
-		const styles = {
-			keys: {
-				display: 'flex',
-				flex: 1,
-				alignItems: 'center',
-				justifyContent: 'center',
-				flexDirection: 'row',
-				height: 150,
-				paddingTop: 250,
-				paddingBottom: 300,
-			}
-		}
-
 		return (
-			<div style={styles.keys}>
+			<div style={Styles.keys}>
 				<KeyboardKey keyChar="a" sound="clap" audioFile="./sounds/drums/clap.wav" />
 				<KeyboardKey keyChar="s" sound="hihat" audioFile="./sounds/drums/hihat.wav" />
 				<KeyboardKey keyChar="d" sound="kick" audioFile="./sounds/drums/kick.wav" />
@@ -36,32 +19,13 @@ export class DrumKeyboard extends React.Component {
 			</div>
 		)
 	}
-
 }
 
 export class PianoKeyboard extends React.Component {
-	constructor(props) {
-		super(props);
-
-		this.state = {};
-	}
 
 	render(){
-		const styles = {
-			keys: {
-				display: 'flex',
-				flex: 1,
-				alignItems: 'center',
-				justifyContent: 'center',
-				flexDirection: 'row',
-				height: 150,
-				paddingTop: 250,
-				paddingBottom: 300,
-			}
-		}
-
 		return (
-			<div style={styles.keys}>
+			<div style={Styles.keys}>
 				<KeyboardKey keyChar="a" sound="c" audioFile="./sounds/piano/grandpianoC-a.wav" />
 				<KeyboardKey keyChar="s" sound="d" audioFile="./sounds/piano/grandpianoD-s.wav" />
 				<KeyboardKey keyChar="d" sound="e" audioFile="./sounds/piano/grandpianoE-d.wav" />
@@ -74,32 +38,13 @@ export class PianoKeyboard extends React.Component {
 			</div>
 		)
 	}
-
 }
 
 export class SynthKeyboard extends React.Component {
-	constructor(props) {
-		super(props);
-
-		this.state = {};
-	}
 
 	render(){
-		const styles = {
-			keys: {
-				display: 'flex',
-				flex: 1,
-				alignItems: 'center',
-				justifyContent: 'center',
-				flexDirection: 'row',
-				height: 150,
-				paddingTop: 250,
-				paddingBottom: 300,
-			}
-		}
-
 		return (
-			<div style={styles.keys}>
+			<div style={Styles.keys}>
 				<KeyboardKey keyChar="a" sound="c" audioFile="./sounds/synth/synthC-a.wav" />
 				<KeyboardKey keyChar="s" sound="d" audioFile="./sounds/synth/synthD-s.wav" />
 				<KeyboardKey keyChar="d" sound="e" audioFile="./sounds/synth/synthE-d.wav" />
@@ -112,5 +57,4 @@ export class SynthKeyboard extends React.Component {
 			</div>
 		)
 	}
-
 }

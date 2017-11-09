@@ -1,33 +1,34 @@
 import SwitchInstruments from "./SwitchInstruments.jsx"
-import 
+import App from "./App.jsx"
 
 export class SaveSounds extends React.Component {
 	constructor(props) {
 		super(props);
+		this.onKeyPlay = this.onKeyPlay.bind(this);
 
-		this.state = [{
-				instrument: this.props.instrument,
-				keypressed: this.props.keypressed
-				// timeStamp: null
-				}];
-		this.saveDown = this.saveDown.bind(this);
+		this.state = {
+			isRecording: false,
+			recording: []
+		};
 	}
 
-	saveDown(){
-		this.setState(prevState => {
-			const oldArray = [prevState.instrument, prevState.keypressed];
-			const newArray = oldArray.concat([{
-				instrument: this.props.instrument,
-				keypressed: this.props.keypressed
-			}]);
-		})
-		return this.state;
+
+	onKeyPlay(){
+
+		
+		this.state.recording.push(this.props.keyPressed);
+		this.setState({
+			isRecording: true,
+			recording: [this.props.keyPressed]
+		});	
+		console.log("new array: " + this.state.recording);
+		return this.state.recording;
 	}
-render() {
-	console.log("new array:" + this.state)
-	return (
-		<button onClick={this.saveDown}> Save </button>
-		)
-}
+
+	render() {
+		return (
+			<button 
+			)
+	}
 
 }

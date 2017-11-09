@@ -1,40 +1,59 @@
 
-import {DrumKeyboard} from "./InstrumentKeyboards.jsx"
-import {SwitchInstruments} from "./SwitchInstruments.jsx"
+import {SwitchInstruments} from "./SwitchInstruments.jsx";
+import {Styles} from "./Styles.jsx";
+import {DrumKeyboard} from "./InstrumentKeyboards.jsx";
+import {PianoKeyboard} from "./InstrumentKeyboards.jsx";
+import {SynthKeyboard} from "./InstrumentKeyboards.jsx";
+import {KeyboardKey} from "./KeyboardKey.jsx";
 
 export class App extends React.Component {
 	constructor(props) {
 		super(props);
 
 		this.state = {
-			// instrument: props.drums,
-			recording: false,
-			playingBack: false
+			// isPlaying: false,
+			instrument: "piano"
 		};
-
-		// this.switchInstrument = this.switchInstrument.bind(this);
-		// this.recordSound = this.recordSound.bind(this);
-		// this.playBackSong = this.playBackSong.bind(this);
-		// this.discardSong = this.discardSong.bind(this);
-		// this.saveSong = this.saveSong.bind(this);
-
+		this.changeInstrument = this.changeInstrument.bind(this);
+	}
+	// onPlay(played){
+	// 	this.setState({
+	// 		isPlaying: played
+	// 	});
+	// }
+	
+	changeInstrument(newInstrument){
+		this.setState({
+			instrument: newInstrument
+		});
 	}
 
-
 	render() {
-
-		const styles = {
-			image: {
-				backgroundImage: 'url(' + "./images/815.jpg" + ')',
-				backgroundSize: "cover",
-				margin: 0,
-
-			}
+		switch (this.state.instrument) {
+			case "piano":
+				return (
+					<div style={Styles.image}>
+					<SwitchInstruments instrument={this.state.instrument} onClick={this.changeInstrument}/>
+					<PianoKeyboard />
+					</div>
+					);
+				break;
+			case "drums":
+				return (
+					<div style={Styles.image}>
+					<SwitchInstruments instrument={this.state.instrument} onClick={this.changeInstrument}/>
+					<DrumKeyboard />
+					</div>
+					);
+				break;
+			case "synth":
+				return (
+					<div style={Styles.image}>
+					<SwitchInstruments instrument={this.state.instrument} onClick={this.changeInstrument}/>
+					<SynthKeyboard />
+					</div>
+					);
 		}
-		// render SwitchInstruments here
-		return (<div style={styles.image}> 			
-			<SwitchInstruments />
-			</div>)
 	}
 }
 
