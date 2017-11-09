@@ -1,22 +1,18 @@
 import {Styles} from "./Styles.jsx";
 
 export class KeyboardKey extends React.Component {
-	constructor(props) {
+	constructor(props){
 		super(props);
 
 		this.handleKeyPress = this.handleKeyPress.bind(this);    
 	}
 
-	handleKeyPress(event) {
-		// console.log("KeyPress triggered: ", event.key);
+	handleKeyPress(event){
 		const audio = new Audio(this.props.audioFile);
 
 		if (event.key === this.props.keyChar){
 			audio.currentTime = 0;
 			audio.play();
-			// this.props.onKeyPress({
-			// 	isPlaying: true
-			// });
 		 }	
 	}
 
@@ -28,7 +24,7 @@ export class KeyboardKey extends React.Component {
 		document.removeEventListener('keypress', this.handleKeyPress);
 	}
 
-	render() {
+	render(){
 		return (
 			<div >
 				<div
