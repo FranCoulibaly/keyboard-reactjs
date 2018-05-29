@@ -31,7 +31,6 @@ var App = exports.App = function (_React$Component) {
 		_this.state = {
 			instrument: "piano"
 		};
-
 		_this.changeInstrument = _this.changeInstrument.bind(_this);
 		return _this;
 	}
@@ -50,7 +49,7 @@ var App = exports.App = function (_React$Component) {
 				case "piano":
 					return React.createElement(
 						"div",
-						{ style: _Styles.Styles.image },
+						null,
 						React.createElement(_SwitchInstruments.SwitchInstruments, { instrument: this.state.instrument, onClick: this.changeInstrument }),
 						React.createElement(
 							"div",
@@ -70,7 +69,7 @@ var App = exports.App = function (_React$Component) {
 				case "drums":
 					return React.createElement(
 						"div",
-						{ style: _Styles.Styles.image },
+						null,
 						React.createElement(_SwitchInstruments.SwitchInstruments, { instrument: this.state.instrument, onClick: this.changeInstrument }),
 						React.createElement(
 							"div",
@@ -90,7 +89,7 @@ var App = exports.App = function (_React$Component) {
 				case "synth":
 					return React.createElement(
 						"div",
-						{ style: _Styles.Styles.image },
+						null,
 						React.createElement(_SwitchInstruments.SwitchInstruments, { instrument: this.state.instrument, onClick: this.changeInstrument }),
 						React.createElement(
 							"div",
@@ -170,14 +169,12 @@ var KeyboardKey = exports.KeyboardKey = function (_React$Component) {
 
 			return React.createElement(
 				'div',
-				null,
+				{ style: _Styles.Styles.key },
 				React.createElement(
 					'div',
-					{
-						onKeyPress: function onKeyPress(event) {
+					{ onKeyPress: function onKeyPress(event) {
 							return _this2.handleKeyPress(event);
-						},
-						style: _Styles.Styles.key },
+						} },
 					React.createElement(
 						'kbd',
 						{ style: _Styles.Styles.kbd },
@@ -225,11 +222,6 @@ var Styles = exports.Styles = {
 		color: '#ffc600',
 		fontFamily: 'sans-serif'
 	},
-	playing: {
-		tranform: 'scale(1.1)',
-		borderColor: '#cc3184',
-		boxShadow: '0 0 1rem #cc3184'
-	},
 	key: {
 		border: 'solid #cc3184',
 		borderRadius: '50%',
@@ -239,8 +231,7 @@ var Styles = exports.Styles = {
 		width: 80,
 		textAlign: 'center',
 		color: 'white',
-		borderColor: '#cc3184',
-		boxShadow: '0 0 1rem #cc3184'
+		borderColor: '#cc3184'
 	},
 	button: {
 		border: 'solid #eecc3a',
@@ -253,6 +244,7 @@ var Styles = exports.Styles = {
 		color: '#eecc3a',
 		backgroundColor: 'transparent'
 	}
+
 };
 
 },{}],4:[function(require,module,exports){

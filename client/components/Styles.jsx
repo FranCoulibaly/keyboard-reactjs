@@ -21,11 +21,6 @@ export const Styles = {
 		color: '#ffc600',
 		fontFamily: 'sans-serif',
 	},
-	playing: {
-		tranform: 'scale(1.1)',
-		borderColor: '#cc3184',
-		boxShadow: '0 0 1rem #cc3184' 
-	},
 	key: {
 		border: 'solid #cc3184',
 		borderRadius: '50%',
@@ -35,8 +30,7 @@ export const Styles = {
 		width: 80,
 		textAlign: 'center',
 		color: 'white',
-		borderColor: '#cc3184',
-		boxShadow: '0 0 1rem #cc3184' 
+		borderColor: '#cc3184',	 
 	},
 	button: {
 		border: 'solid #eecc3a',
@@ -49,4 +43,5 @@ export const Styles = {
 		color: '#eecc3a',
 		backgroundColor: 'transparent'
 	},
+
 }

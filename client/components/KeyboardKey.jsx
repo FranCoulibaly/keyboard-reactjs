@@ -4,16 +4,16 @@ export class KeyboardKey extends React.Component {
 	constructor(props){
 		super(props);
 
-		this.handleKeyPress = this.handleKeyPress.bind(this);    
+		this.handleKeyPress = this.handleKeyPress.bind(this);   	 
 	}
 
 	handleKeyPress(event){
 		const audio = new Audio(this.props.audioFile);
-
+	
 		if (event.key === this.props.keyChar){
 			audio.currentTime = 0;
 			audio.play();
-		 }	
+		}
 	}
 
 	componentDidMount(){
@@ -26,10 +26,8 @@ export class KeyboardKey extends React.Component {
 
 	render(){
 		return (
-			<div >
-				<div
-				onKeyPress={(event) => this.handleKeyPress(event)}
-				style={Styles.key}>
+			<div style={Styles.key}>
+				<div onKeyPress={(event) => this.handleKeyPress(event)} >
 					<kbd style={Styles.kbd}>{this.props.keyChar}</kbd>
 					<span style={Styles.sound}>{this.props.sound}</span>
 				</div>

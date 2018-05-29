@@ -6,11 +6,11 @@ export class SwitchInstruments extends React.Component {
 
 		this.handleClick = this.handleClick.bind(this);	
 	}
-		
-		handleClick(event){
-			const instrument = event.target.value;
-			this.props.onClick(instrument);
-		}
+	
+	handleClick(event){
+		const instrument = event.target.value;
+		this.props.onClick(instrument);
+	}
 
 	render(){
 		return (

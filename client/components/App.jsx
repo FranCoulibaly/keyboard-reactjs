@@ -8,13 +8,11 @@ export class App extends React.Component {
 		super(props);
 
 		this.state = {
-			instrument: "piano"
+			instrument: "piano",
 		};
-
 		this.changeInstrument = this.changeInstrument.bind(this);
 	}
 
-	
 	changeInstrument(newInstrument){
 		this.setState({
 			instrument: newInstrument
@@ -25,9 +23,9 @@ export class App extends React.Component {
 		switch (this.state.instrument){
 			case "piano":
 				return (
-					<div style={Styles.image}>
+					<div>
 						<SwitchInstruments instrument={this.state.instrument} onClick={this.changeInstrument}/>
-						<div style={Styles.keys}>
+						<div style={Styles.keys} >
 							<KeyboardKey keyChar="a" sound="c" audioFile="./sounds/piano/grandpianoC-a.wav" />
 							<KeyboardKey keyChar="s" sound="d" audioFile="./sounds/piano/grandpianoD-s.wav" />
 							<KeyboardKey keyChar="d" sound="e" audioFile="./sounds/piano/grandpianoE-d.wav" />
@@ -43,7 +41,7 @@ export class App extends React.Component {
 				break;
 			case "drums":
 				return (
-					<div style={Styles.image}>
+					<div>
 						<SwitchInstruments instrument={this.state.instrument} onClick={this.changeInstrument}/>
 						<div style={Styles.keys}>
 							<KeyboardKey keyChar="a" sound="clap" audioFile="./sounds/drums/clap.wav" />
@@ -61,7 +59,7 @@ export class App extends React.Component {
 				break;
 			case "synth":
 				return (
-					<div style={Styles.image}>
+					<div>
 						<SwitchInstruments instrument={this.state.instrument} onClick={this.changeInstrument}/>
 						<div style={Styles.keys}>
 							<KeyboardKey keyChar="a" sound="c" audioFile="./sounds/synth/synthC-a.wav" />

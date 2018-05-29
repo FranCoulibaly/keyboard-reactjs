@@ -1,11 +1,9 @@
 const express = require("express");
 const bodyParser = require("body-parser");
-// const pg = require("pg");
 const server = express();
 
 server.set("view engine", "pug");
 
-// server.set("view engine", "pug");
 server.use(express.static("public"));
 server.use(express.static("build"));
 
